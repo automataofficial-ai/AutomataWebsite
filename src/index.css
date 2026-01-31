@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;800&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --color-primary: #FFFFFF;
+  --color-secondary: #000000;
+  --color-accent: #C6FF00;
+  --color-accent-hover: #b6ff2b;
+  --color-accent-glow: rgba(198, 255, 0, 0.3);
+
+  --font-main: 'Inter', sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-smooth);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: var(--font-main);
+  transition: var(--transition-smooth);
+}
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.btn-lime {
+  background-color: var(--color-accent);
+  color: var(--color-secondary);
+  padding: 0.7rem 1.8rem;
+  font-weight: 700;
+  border-radius: 4px;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  box-shadow: 0 4px 15px var(--color-accent-glow);
+}
+
+.btn-lime:hover {
+  background-color: var(--color-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--color-accent-glow);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  padding: 0.8rem 2rem;
+  font-weight: 700;
+  border-radius: 4px;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+}
+
+.text-lime {
+  color: var(--color-accent);
+}
+
+.section-padding {
+  padding: 100px 0;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 60px 0;
+  }
+}
