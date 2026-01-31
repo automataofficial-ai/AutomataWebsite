@@ -15,7 +15,7 @@ const Hero = () => {
           </p>
           <div className="hero-btns reveal">
             <a href="#contact" className="btn-lime">Get Started</a>
-            <a href="#services" className="btn-outline">Book a Demo</a>
+            <a href="https://calendly.com/automata-official-ai/new-meeting" target="_blank" rel="noopener noreferrer" className="btn-outline">Book a Demo</a>
           </div>
         </div>
         <div className="hero-visual reveal">
