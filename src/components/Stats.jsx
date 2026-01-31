@@ -27,7 +27,7 @@ const Stats = () => {
         }
         .stats-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
           gap: 2rem;
           text-align: center;
         }

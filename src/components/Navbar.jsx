@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -12,19 +13,29 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const closeMenu = () => setIsMenuOpen(false);
+
   return (
-    <header className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+    <header className={`navbar ${isScrolled ? 'scrolled' : ''} ${isMenuOpen ? 'menu-open' : ''}`}>
       <div className="container nav-container">
         <div className="logo">
-          <Link to="/">AUTOMATA <span className="text-lime">AI</span></Link>
+          <Link to="/" onClick={closeMenu}>AUTOMATA <span className="text-lime">AI</span></Link>
         </div>
-        <nav className="nav-links">
-          <Link to="/#about">About</Link>
-          <Link to="/#services">Services</Link>
-          <Link to="/#portfolio">Portfolio</Link>
-          <Link to="/career">Career</Link>
-          <Link to="/#contact" className="btn-lime nav-cta">Contact</Link>
+
+        <nav className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
+          <Link to="/#about" onClick={closeMenu}>About</Link>
+          <Link to="/#services" onClick={closeMenu}>Services</Link>
+          <Link to="/#portfolio" onClick={closeMenu}>Portfolio</Link>
+          <Link to="/career" onClick={closeMenu}>Career</Link>
+          <Link to="/#contact" className="btn-lime nav-cta" onClick={closeMenu}>Contact</Link>
         </nav>
+
+        <button className="menu-toggle" onClick={toggleMenu} aria-label="Toggle Menu">
+          <span className="bar"></span>
+          <span className="bar"></span>
+          <span className="bar"></span>
+        </button>
       </div>
 
       <style jsx="true">{`
@@ -76,10 +87,57 @@ const Navbar = () => {
           font-size: 0.8rem;
           color: var(--color-secondary) !important;
         }
-        @media (max-width: 768px) {
+
+        .menu-toggle {
+          display: none;
+          flex-direction: column;
+          gap: 6px;
+          background: transparent;
+          border: none;
+          cursor: pointer;
+          z-index: 1001;
+        }
+        .bar {
+          width: 25px;
+          height: 2px;
+          background-color: white;
+          transition: var(--transition-smooth);
+        }
+
+        @media (max-width: 992px) {
           .nav-links {
-            display: none;
+            gap: 1.5rem;
           }
+        }
+
+        @media (max-width: 768px) {
+          .navbar { padding: 1rem 0; }
+          .menu-toggle { display: flex; }
+          
+          .nav-links {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            height: 100vh;
+            background: #000;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: 0.4s ease;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+          }
+          .nav-links.active {
+            right: 0;
+          }
+          .nav-links a {
+            font-size: 1.2rem !important;
+          }
+
+          /* Hamburger Animation */
+          .menu-open .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+          .menu-open .bar:nth-child(2) { opacity: 0; }
+          .menu-open .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
         }
       `}</style>
     </header>

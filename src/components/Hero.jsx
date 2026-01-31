@@ -5,20 +5,20 @@ const Hero = () => {
     <section className="hero">
       <div className="container hero-content">
         <div className="hero-text">
-          <h1 className="hero-title">
+          <h1 className="hero-title reveal">
             Scale Faster with <br />
             <span className="text-lime">Intelligent</span> <br />
             Automation
           </h1>
-          <p className="hero-subtitle">
+          <p className="hero-subtitle reveal">
             Automata AI builds intelligent automation systems that help businesses scale effortlessly.
           </p>
-          <div className="hero-btns">
+          <div className="hero-btns reveal">
             <a href="#contact" className="btn-lime">Get Started</a>
             <a href="#services" className="btn-outline">Book a Demo</a>
           </div>
         </div>
-        <div className="hero-visual">
+        <div className="hero-visual reveal">
           <div className="abstract-shape"></div>
           <div className="abstract-shape-2"></div>
           <div className="glow-effect"></div>
@@ -27,12 +27,13 @@ const Hero = () => {
 
       <style jsx="true">{`
         .hero {
-          height: 100vh;
+          min-height: 100vh;
           display: flex;
           align-items: center;
           position: relative;
           overflow: hidden;
           background: radial-gradient(circle at 10% 20%, rgba(198, 255, 0, 0.05) 0%, transparent 40%);
+          padding-top: 80px;
         }
         .hero-content {
           display: grid;
@@ -98,12 +99,21 @@ const Hero = () => {
           from { transform: translate(-50%, -50%) rotate(360deg); }
           to { transform: translate(-50%, -50%) rotate(0deg); }
         }
+        @media (max-width: 1200px) {
+          .hero-title { font-size: 4rem; }
+        }
         @media (max-width: 992px) {
           .hero-title { font-size: 3.5rem; }
           .hero-content { grid-template-columns: 1fr; text-align: center; }
           .hero-subtitle { margin: 0 auto 2.5rem; }
           .hero-btns { justify-content: center; }
           .hero-visual { display: none; }
+        }
+        @media (max-width: 480px) {
+          .hero-title { font-size: 2.5rem; }
+          .hero-subtitle { font-size: 1.1rem; }
+          .hero-btns { flex-direction: column; width: 100%; }
+          .hero-btns a { width: 100%; text-align: center; }
         }
       `}</style>
     </section>

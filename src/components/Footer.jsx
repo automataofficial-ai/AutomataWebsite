@@ -158,6 +158,15 @@ const Footer = () => {
           .footer-bottom-row { grid-template-columns: 1fr; text-align: center; }
           .footer-brand, .footer-copyright, .social-row { justify-self: center; }
         }
+        @media (max-width: 768px) {
+          .contact-info .section-title { font-size: 2.2rem; }
+          .contact-form { padding: 2rem; }
+          .footer { padding: 4rem 0 2rem; }
+        }
+        @media (max-width: 480px) {
+          .contact-info .section-title { font-size: 1.8rem; }
+          .detail-link { font-size: 0.95rem; }
+        }
       `}</style>
     </footer>
   );

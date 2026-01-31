@@ -67,15 +67,22 @@ const Services = () => {
         }
         .capabilities-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          grid-template-columns: repeat(3, 1fr);
           gap: 2rem;
         }
         .capability-card {
-          padding: 3rem;
+          padding: 2.5rem;
           background: rgba(255, 255, 255, 0.03);
           border: 1px solid rgba(255, 255, 255, 0.1);
           border-radius: 8px;
           transition: var(--transition-smooth);
+        }
+        @media (max-width: 992px) {
+          .capabilities-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 480px) {
+          .capability-card { padding: 2rem; }
+          .capabilities-grid { grid-template-columns: 1fr; }
         }
         .capability-icon {
           color: var(--color-accent);
