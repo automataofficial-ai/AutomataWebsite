@@ -43,7 +43,7 @@ const Footer = () => {
         {/* Bottom Row */}
         <div className="footer-bottom-row">
           <div className="footer-brand">
-            <h3 className="footer-title">AUTOMATA <span className="text-lime">AI</span></h3>
+            <img src="/logo.png" alt="Automata AI Logo" className="footer-logo-img" />
           </div>
 
           <div className="footer-copyright">
@@ -139,6 +139,11 @@ const Footer = () => {
           gap: 2rem;
         }
         .footer-brand { justify-self: start; }
+        .footer-logo-img {
+          height: 35px;
+          width: auto;
+          display: block;
+        }
         .footer-copyright { justify-self: center; color: rgba(255, 255, 255, 0.4); font-size: 0.85rem; }
         .social-row { 
           justify-self: end; 

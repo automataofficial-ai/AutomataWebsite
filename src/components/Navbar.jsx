@@ -20,7 +20,9 @@ const Navbar = () => {
     <header className={`navbar ${isScrolled ? 'scrolled' : ''} ${isMenuOpen ? 'menu-open' : ''}`}>
       <div className="container nav-container">
         <div className="logo">
-          <Link to="/" onClick={closeMenu}>AUTOMATA <span className="text-lime">AI</span></Link>
+          <Link to="/" onClick={closeMenu} className="nav-logo-link">
+            <img src="/logo.png" alt="Automata AI Logo" className="nav-logo-img" />
+          </Link>
         </div>
 
         <nav className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
@@ -59,12 +61,14 @@ const Navbar = () => {
           justify-content: space-between;
           align-items: center;
         }
-        .logo a {
-          font-family: var(--font-heading);
-          font-weight: 800;
-          font-size: 1.5rem;
-          letter-spacing: 2px;
-          color: white;
+        .nav-logo-link {
+          display: flex;
+          align-items: center;
+        }
+        .nav-logo-img {
+          height: 35px;
+          width: auto;
+          display: block;
         }
         .nav-links {
           display: flex;
